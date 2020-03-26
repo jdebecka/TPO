@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67df8fdd-ff4f-42ee-9bab-a38e51a209d1" name="Default Changelist" comment="" />
+    <list default="true" id="67df8fdd-ff4f-42ee-9bab-a38e51a209d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NIO_Server_Client/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ReaderFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ReaderFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/src/main/java/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/src/main/java/Client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/src/main/java/Server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/src/main/java/Server/EchoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/target/classes/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/target/classes/Client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/target/classes/Server/EchoServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/target/classes/Server/EchoServer.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +25,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -22,6 +36,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZalAiTuxMhBfYydQL6myQiCXFr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,7 +51,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.ReaderFile">
+  <component name="RunManager" selected="Application.WriterFile">
     <configuration name="ReaderFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ReaderFile" />
       <module name="Assigment1" />
@@ -53,8 +68,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ReaderFile" />
         <item itemvalue="Application.WriterFile" />
+        <item itemvalue="Application.ReaderFile" />
       </list>
     </recent_temporary>
   </component>
@@ -76,6 +91,8 @@
       <workItem from="1585135508716" duration="6642000" />
       <workItem from="1585143245632" duration="497000" />
       <workItem from="1585147821652" duration="1224000" />
+      <workItem from="1585171649830" duration="7000" />
+      <workItem from="1585216947564" duration="673000" />
     </task>
     <servers />
   </component>
@@ -100,24 +117,28 @@
     </state>
     <state width="515" height="466" key="DebuggerActiveHint/0.23.1440.820/-1920.23.1920.1057@0.23.1440.820" timestamp="1585141985825" />
     <state width="469" height="466" key="DebuggerActiveHint/0.23.1440.820@0.23.1440.820" timestamp="1585099729638" />
-    <state width="1398" height="211" key="GridCell.Tab.0.bottom" timestamp="1585143744204">
-      <screen x="0" y="23" width="1440" height="820" />
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1585217622343">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1585217622343" />
     <state width="1398" height="211" key="GridCell.Tab.0.bottom/0.23.1440.820/-1920.23.1920.1057@0.23.1440.820" timestamp="1585143744204" />
     <state width="1398" height="211" key="GridCell.Tab.0.bottom/0.23.1440.820@0.23.1440.820" timestamp="1585108252766" />
-    <state width="1398" height="211" key="GridCell.Tab.0.center" timestamp="1585143744203">
-      <screen x="0" y="23" width="1440" height="820" />
+    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1585217622341">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1585217622341" />
     <state width="1398" height="211" key="GridCell.Tab.0.center/0.23.1440.820/-1920.23.1920.1057@0.23.1440.820" timestamp="1585143744203" />
     <state width="1398" height="211" key="GridCell.Tab.0.center/0.23.1440.820@0.23.1440.820" timestamp="1585108252766" />
-    <state width="1398" height="211" key="GridCell.Tab.0.left" timestamp="1585143744203">
-      <screen x="0" y="23" width="1440" height="820" />
+    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1585217622341">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1585217622341" />
     <state width="1398" height="211" key="GridCell.Tab.0.left/0.23.1440.820/-1920.23.1920.1057@0.23.1440.820" timestamp="1585143744203" />
     <state width="1398" height="211" key="GridCell.Tab.0.left/0.23.1440.820@0.23.1440.820" timestamp="1585108252765" />
-    <state width="1398" height="211" key="GridCell.Tab.0.right" timestamp="1585143744203">
-      <screen x="0" y="23" width="1440" height="820" />
+    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1585217622342">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1585217622342" />
     <state width="1398" height="211" key="GridCell.Tab.0.right/0.23.1440.820/-1920.23.1920.1057@0.23.1440.820" timestamp="1585143744203" />
     <state width="1398" height="211" key="GridCell.Tab.0.right/0.23.1440.820@0.23.1440.820" timestamp="1585108252766" />
     <state width="1398" height="262" key="GridCell.Tab.1.bottom" timestamp="1585142994375">
@@ -144,9 +165,10 @@
       <screen x="0" y="23" width="1440" height="820" />
     </state>
     <state x="221" y="72" key="SettingsEditor/0.23.1440.820@0.23.1440.820" timestamp="1585107417198" />
-    <state x="397" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585135508538">
+    <state x="397" y="265" key="com.intellij.ide.util.TipDialog" timestamp="1585171649489">
       <screen x="0" y="23" width="1440" height="820" />
     </state>
+    <state x="397" y="265" key="com.intellij.ide.util.TipDialog/0.23.1440.820/-1920.23.1920.1057@0.23.1440.820" timestamp="1585171649489" />
     <state x="397" y="265" key="com.intellij.ide.util.TipDialog/0.23.1440.820@0.23.1440.820" timestamp="1585135508538" />
     <state x="385" y="167" width="670" height="676" key="search.everywhere.popup" timestamp="1585085021480">
       <screen x="0" y="23" width="1440" height="820" />

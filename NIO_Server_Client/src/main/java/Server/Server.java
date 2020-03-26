@@ -4,22 +4,22 @@ import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Set;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class EchoServer {
+public class Server {
     public static void main(String[] args) throws IOException {
-        EchoServer echoServer = new EchoServer();
-        echoServer.serve();
+        Server server = new Server();
+        server.serve();
     }
 
     public static final int PORT_NUMBER = 8080;
     private static final InetSocketAddress PORT = new InetSocketAddress(PORT_NUMBER);
-    private ByteBuffer byteBuffer = ByteBuffer.allocate(1096);
+    private ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
     Selector selector;
-    private static final System.Logger LOG = System.getLogger(EchoServer.class.getName());
-    private Dictionary<java.net.SocketAddress, String> allClientMessages = new Hashtable<>();
+    private static final System.Logger LOG = System.getLogger(Server.class.getName());
+    private Dictionary<java.net.SocketAddress, Integer> allClientMessages = new Hashtable<>();
 
     void serve() throws IOException {
         initializeSelection();
@@ -47,25 +47,39 @@ public class EchoServer {
 
             else if(key.isReadable()){
                 final SocketChannel socketChannel = (SocketChannel) key.channel();
-                readClientsMessage(socketChannel);
+                try{
+                    readClientsMessage(socketChannel);
+                }catch (IOException e) {
+                    break;
+                }
             }
 
             else if(key.isWritable()){
                 final SocketChannel socketChannel = (SocketChannel) key.channel();
-                echoToClient(socketChannel);
+                try{
+                    respondToClient(socketChannel);
+                }catch (IOException e){
+                    LOG.log(System.Logger.Level.WARNING, "Connection with: " + socketChannel.getRemoteAddress() + " closed unexpectedly");
+                    socketChannel.close();
+                    break;
+                }
             }
             keys.remove(key);
         }
     }
 
-    private void echoToClient(SocketChannel socketChannel) throws IOException {
-        LOG.log(System.Logger.Level.INFO, "Echoing to: " + socketChannel);
-        SocketAddress clientsAddress = socketChannel.getRemoteAddress();
-        String clientMessage = allClientMessages.get(clientsAddress);
-        allClientMessages.remove(clientsAddress);
+    private void respondToClient(SocketChannel socketChannel) throws IOException {
 
-        byteBuffer.put(clientMessage.getBytes());
-        byteBuffer.flip();
+        SocketAddress clientsAddress = socketChannel.getRemoteAddress();
+        int response = allClientMessages.get(clientsAddress);
+        allClientMessages.remove(clientsAddress);
+        byteBuffer.clear();
+        String string = Integer.toString(response);
+
+        LOG.log(System.Logger.Level.INFO, "Responding to: " + socketChannel + " with: " + string);
+
+        byte[] inputBytes = string.getBytes();
+        byteBuffer = ByteBuffer.wrap(inputBytes);
         socketChannel.write(byteBuffer);
         byteBuffer.clear();
         socketChannel.configureBlocking(false);
@@ -74,14 +88,41 @@ public class EchoServer {
     }
 
     private void readClientsMessage(SocketChannel socketChannel) throws IOException {
-        byteBuffer.clear();
+        byteBuffer = ByteBuffer.allocate(1024);
         LOG.log(System.Logger.Level.INFO, "Reading from a client: " + socketChannel);
+
         socketChannel.read(byteBuffer);
         byteBuffer.rewind();
-        allClientMessages.put(socketChannel.getRemoteAddress(), byteBuffer.toString());
+        byte[] byteArray = byteBuffer.array();
+        String message = new String(byteArray).trim();
+
+        messageDecoder(message, socketChannel);
         byteBuffer.clear();
-        socketChannel.configureBlocking(false);
-        socketChannel.register(selector, SelectionKey.OP_WRITE);
+    }
+
+    private void messageDecoder(String clientMessage, SocketChannel socketChannel) throws IOException {
+        if(clientMessage.contains("add")){
+            allClientMessages.put(socketChannel.getRemoteAddress(), addIntegers(clientMessage));
+            socketChannel.configureBlocking(false);
+            socketChannel.register(selector, SelectionKey.OP_WRITE);
+        }else if (clientMessage.contains("close")) {
+            LOG.log(System.Logger.Level.WARNING, "Client: " + socketChannel.getRemoteAddress() + " closed the connection");
+            socketChannel.close();
+            byteBuffer.clear();
+        }else {
+            LOG.log(System.Logger.Level.INFO, "from: " + socketChannel.getRemoteAddress() + " Message: " + clientMessage);
+        }
+    }
+
+    private int addIntegers(String message){
+        Pattern p = Pattern.compile("\\d+");
+        Matcher m = p.matcher(message);
+        List<Integer> integerList = new ArrayList<>();
+
+        while (m.find()) {
+            integerList.add(Integer.parseInt(m.group()));
+        }
+        return integerList.stream().mapToInt(Integer::intValue).sum();
     }
 
 
@@ -100,6 +141,8 @@ public class EchoServer {
         channel.configureBlocking(false);
         //when client wants to connect, we will be notified and accept the connection
         channel.register(selector, SelectionKey.OP_ACCEPT);
+
+        LOG.log(System.Logger.Level.INFO, "Started listening on port: " + PORT_NUMBER);
 
     }
 

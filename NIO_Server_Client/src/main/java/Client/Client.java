@@ -1,6 +1,5 @@
 package Client;
-import Server.EchoServer;
-
+import Server.Server;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -12,12 +11,12 @@ public class Client {
     private static Scanner scanner =  new Scanner(System.in);
 
     public void establishConnection(){
-        final InetSocketAddress serverAddress = new InetSocketAddress("localhost", EchoServer.PORT_NUMBER);
+        final InetSocketAddress serverAddress = new InetSocketAddress("localhost", Server.PORT_NUMBER);
         try(SocketChannel socketChannel = SocketChannel.open()) {
             socketChannel.connect(serverAddress);
             writeToServer(socketChannel);
             socketChannel.finishConnect();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -27,39 +26,40 @@ public class Client {
         return scanner.nextLine();
     }
 
-    private void writeToServer(SocketChannel socketChannel) throws IOException, InterruptedException {
-        String clientsMessage = getClientMessage();
-        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-        do{
-            byteBuffer.put(clientsMessage.getBytes());
-            byteBuffer.rewind();
-            socketChannel.write(byteBuffer);
-            LOG.log(System.Logger.Level.INFO, "Writing message: " + clientsMessage);
-            waitForResponse(socketChannel);
+    private void writeToServer(SocketChannel socketChannel) throws IOException {
+        String clientsMessage = " ";
+        ByteBuffer byteBuffer;
+        while(!clientsMessage.equalsIgnoreCase("close")){
             clientsMessage = getClientMessage();
-            byteBuffer.clear();
 
-        }while(!clientsMessage.equalsIgnoreCase("close"));
+            byte[] inputBytes = clientsMessage.getBytes();
+            byteBuffer = ByteBuffer.wrap(inputBytes);
+            socketChannel.write(byteBuffer);
+
+            LOG.log(System.Logger.Level.INFO, "Writing message: " + clientsMessage);
+
+            if(clientsMessage.contains("add")){
+                waitForResponse(socketChannel);
+            }
+
+            byteBuffer.clear();
+        }
     }
 
     private void waitForResponse(SocketChannel socketChannel) throws IOException {
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-        StringBuilder message = new StringBuilder();
-
+        byteBuffer.clear();
         socketChannel.read(byteBuffer);
         byteBuffer.rewind();
-        while (byteBuffer.hasRemaining()){
-                message.append(byteBuffer.get());
-        }
+        byte[] byteArray = byteBuffer.array();
+
+        String response = new String(byteArray).trim();
         byteBuffer.clear();
 
-        String echo = message.toString();
-        LOG.log(System.Logger.Level.INFO, "Server responded: " + echo);
-        byteBuffer.clear();
+        LOG.log(System.Logger.Level.INFO, "Server responded: " + response);
     }
 
     public static void main(String[] args) {
-
         Client client = new Client();
         client.establishConnection();
     }
