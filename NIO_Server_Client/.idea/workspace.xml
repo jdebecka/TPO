@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24545bdb-f4aa-45ed-9261-464cad53f72a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../NIO/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NIO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO/src/main/java/ReaderFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO/src/main/java/ReaderFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO/src/main/resources/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO/src/main/resources/sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO/target/classes/ReaderFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO/target/classes/ReaderFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO/target/classes/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO/target/classes/sample.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/EchoServer.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +71,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client" />
-        <item itemvalue="Application.EchoServer" />
       </list>
     </recent_temporary>
   </component>
@@ -100,6 +88,7 @@
       <workItem from="1585171649250" duration="1538000" />
       <workItem from="1585211491464" duration="6099000" />
       <workItem from="1585217742284" duration="107000" />
+      <workItem from="1585219090227" duration="480000" />
     </task>
     <servers />
   </component>
@@ -185,10 +174,10 @@
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>
     <state x="-1451" y="179" key="SettingsEditor/0.0.1440.900/-1920.0.1920.1080@-1920.0.1920.1080" timestamp="1585165394435" />
-    <state x="397" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1585217740770">
+    <state x="397" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1585219089809">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="397" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1585217740770" />
+    <state x="397" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900/-1920.0.1920.1080@0.0.1440.900" timestamp="1585219089809" />
     <state x="-1196" y="418" width="699" height="293" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1585165301288">
       <screen x="-1920" y="0" width="1920" height="1080" />
     </state>

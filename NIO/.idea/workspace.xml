@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67df8fdd-ff4f-42ee-9bab-a38e51a209d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NIO_Server_Client/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ReaderFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ReaderFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/src/main/java/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/src/main/java/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/src/main/java/Server/EchoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/src/main/java/Server/EchoServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/target/classes/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/target/classes/Client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NIO_Server_Client/target/classes/Server/EchoServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../NIO_Server_Client/target/classes/Server/EchoServer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +84,7 @@
       <workItem from="1585147821652" duration="1224000" />
       <workItem from="1585171649830" duration="7000" />
       <workItem from="1585216947564" duration="673000" />
+      <workItem from="1585218311677" duration="448000" />
     </task>
     <servers />
   </component>
