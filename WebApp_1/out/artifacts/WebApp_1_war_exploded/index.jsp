@@ -28,7 +28,7 @@
       <input type="submit" value="POST"  formmethod="post">
     </form>
   <h3>Response</h3>
-  <p>Your response is  <span style="font-weight: bold"> ${response}</p>
+    <p>Your response is  <span style="font-weight: bold"> ${response}</span></p>
 
   </body>
 </html>

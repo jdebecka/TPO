@@ -1,4 +1,7 @@
-package classes;
+package Controller;
+
+import Model.Integers;
+import Service.Functions;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -6,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.math.BigInteger;
 
 @WebServlet(name = "classes.Calculator", urlPatterns = "/calculator")
 public class Calculator extends HttpServlet {
@@ -24,7 +25,9 @@ public class Calculator extends HttpServlet {
         try{
             int firstInt = Integer.parseInt(request.getParameter("first"));
             int secondInt = Integer.parseInt(request.getParameter("second"));
-            int added = firstInt + secondInt;
+
+            Integers integers = new Integers(new int[]{ firstInt, secondInt } );
+            int added = Functions.addIntegers( integers.getIntegersToAdd() );
 
             request.getSession().setAttribute("response", added);
             response.sendRedirect("/WebApp_1_war_exploded/");
@@ -32,6 +35,5 @@ public class Calculator extends HttpServlet {
             request.setAttribute("response", "I asked you to put ints and you didn't listen. I am disappointed");
             request.getRequestDispatcher("/").forward(request, response);
         }
-
     }
 }
