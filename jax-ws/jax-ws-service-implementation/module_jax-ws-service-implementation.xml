@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_jax-ws-service-implementation" default="compile.module.jax-ws-service-implementation">
+  <dirname property="module.jax-ws-service-implementation.basedir" file="${ant.file.module_jax-ws-service-implementation}"/>
+  
+  <property name="module.jdk.home.jax-ws-service-implementation" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jax-ws-service-implementation" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jax-ws-service-implementation" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jax-ws-service-implementation" value="-encoding UTF-8 -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="jax-ws-service-implementation.output.dir" value="${module.jax-ws-service-implementation.basedir}/target/classes"/>
+  <property name="jax-ws-service-implementation.testoutput.dir" value="${module.jax-ws-service-implementation.basedir}/target/test-classes"/>
+  
+  <path id="jax-ws-service-implementation.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jax-ws-service-implementation.module.production.classpath">
+    <path refid="${module.jdk.classpath.jax-ws-service-implementation}"/>
+    <path refid="library.streambuffer-1.5.9.classpath"/>
+    <pathelement location="${jax-ws-service-api.output.dir}"/>
+    <path refid="library.maven:_javax.jws:javax.jws-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_com.sun.xml.ws:jaxws-rt:2.3.3.classpath"/>
+    <path refid="library.maven:_com.sun.xml.ws:policy:2.7.10.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.3.classpath"/>
+    <path refid="library.maven:_org.glassfish.ha:ha-api:3.1.12.classpath"/>
+    <path refid="library.maven:_org.glassfish.external:management-api:3.2.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.gmbal:gmbal:4.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.pfl:pfl-tf:4.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.pfl:pfl-basic:4.1.0.classpath"/>
+    <path refid="library.maven:_org.jvnet.staxex:stax-ex:1.8.3.classpath"/>
+    <path refid="library.maven:_com.sun.xml.stream.buffer:streambuffer:1.5.9.classpath"/>
+    <path refid="library.maven:_org.jvnet.mimepull:mimepull:1.9.13.classpath"/>
+    <path refid="library.maven:_com.sun.xml.fastinfoset:fastinfoset:1.2.18.classpath"/>
+    <path refid="library.maven:_jakarta.xml.ws:jakarta.xml.ws-api:2.3.3.classpath"/>
+    <path refid="library.maven:_jakarta.xml.bind:jakarta.xml.bind-api:2.3.3.classpath"/>
+    <path refid="library.maven:_jakarta.xml.soap:jakarta.xml.soap-api:1.4.2.classpath"/>
+    <path refid="library.maven:_jakarta.jws:jakarta.jws-api:2.1.0.classpath"/>
+    <path refid="library.maven:_jakarta.annotation:jakarta.annotation-api:1.3.5.classpath"/>
+  </path>
+  
+  <path id="jax-ws-service-implementation.runtime.production.module.classpath">
+    <pathelement location="${jax-ws-service-implementation.output.dir}"/>
+    <path refid="library.streambuffer-1.5.9.classpath"/>
+    <path refid="jax-ws-service-api.runtime.production.module.classpath"/>
+    <path refid="library.maven:_javax.jws:javax.jws-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_com.sun.xml.ws:jaxws-rt:2.3.3.classpath"/>
+    <path refid="library.maven:_com.sun.xml.ws:policy:2.7.10.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.3.classpath"/>
+    <path refid="library.maven:_org.glassfish.ha:ha-api:3.1.12.classpath"/>
+    <path refid="library.maven:_org.glassfish.external:management-api:3.2.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.gmbal:gmbal:4.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.pfl:pfl-tf:4.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.pfl:pfl-basic:4.1.0.classpath"/>
+    <path refid="library.maven:_org.jvnet.staxex:stax-ex:1.8.3.classpath"/>
+    <path refid="library.maven:_com.sun.xml.stream.buffer:streambuffer:1.5.9.classpath"/>
+    <path refid="library.maven:_org.jvnet.mimepull:mimepull:1.9.13.classpath"/>
+    <path refid="library.maven:_com.sun.xml.fastinfoset:fastinfoset:1.2.18.classpath"/>
+    <path refid="library.maven:_com.sun.activation:jakarta.activation:1.2.2.classpath"/>
+    <path refid="library.maven:_com.sun.xml.messaging.saaj:saaj-impl:1.5.2.classpath"/>
+    <path refid="library.maven:_com.fasterxml.woodstox:woodstox-core:5.1.0.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:stax2-api:4.1.classpath"/>
+    <path refid="library.maven:_jakarta.xml.ws:jakarta.xml.ws-api:2.3.3.classpath"/>
+    <path refid="library.maven:_jakarta.xml.bind:jakarta.xml.bind-api:2.3.3.classpath"/>
+    <path refid="library.maven:_jakarta.xml.soap:jakarta.xml.soap-api:1.4.2.classpath"/>
+    <path refid="library.maven:_jakarta.jws:jakarta.jws-api:2.1.0.classpath"/>
+    <path refid="library.maven:_jakarta.annotation:jakarta.annotation-api:1.3.5.classpath"/>
+  </path>
+  
+  <path id="jax-ws-service-implementation.module.classpath">
+    <pathelement location="${jax-ws-service-implementation.output.dir}"/>
+    <path refid="${module.jdk.classpath.jax-ws-service-implementation}"/>
+    <path refid="library.streambuffer-1.5.9.classpath"/>
+    <pathelement location="${jax-ws-service-api.testoutput.dir}"/>
+    <pathelement location="${jax-ws-service-api.output.dir}"/>
+    <path refid="library.maven:_javax.jws:javax.jws-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_com.sun.xml.ws:jaxws-rt:2.3.3.classpath"/>
+    <path refid="library.maven:_com.sun.xml.ws:policy:2.7.10.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.3.classpath"/>
+    <path refid="library.maven:_org.glassfish.ha:ha-api:3.1.12.classpath"/>
+    <path refid="library.maven:_org.glassfish.external:management-api:3.2.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.gmbal:gmbal:4.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.pfl:pfl-tf:4.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.pfl:pfl-basic:4.1.0.classpath"/>
+    <path refid="library.maven:_org.jvnet.staxex:stax-ex:1.8.3.classpath"/>
+    <path refid="library.maven:_com.sun.xml.stream.buffer:streambuffer:1.5.9.classpath"/>
+    <path refid="library.maven:_org.jvnet.mimepull:mimepull:1.9.13.classpath"/>
+    <path refid="library.maven:_com.sun.xml.fastinfoset:fastinfoset:1.2.18.classpath"/>
+    <path refid="library.maven:_com.sun.activation:jakarta.activation:1.2.2.classpath"/>
+    <path refid="library.maven:_com.sun.xml.messaging.saaj:saaj-impl:1.5.2.classpath"/>
+    <path refid="library.maven:_com.fasterxml.woodstox:woodstox-core:5.1.0.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:stax2-api:4.1.classpath"/>
+    <path refid="library.maven:_jakarta.xml.ws:jakarta.xml.ws-api:2.3.3.classpath"/>
+    <path refid="library.maven:_jakarta.xml.bind:jakarta.xml.bind-api:2.3.3.classpath"/>
+    <path refid="library.maven:_jakarta.xml.soap:jakarta.xml.soap-api:1.4.2.classpath"/>
+    <path refid="library.maven:_jakarta.jws:jakarta.jws-api:2.1.0.classpath"/>
+    <path refid="library.maven:_jakarta.annotation:jakarta.annotation-api:1.3.5.classpath"/>
+  </path>
+  
+  <path id="jax-ws-service-implementation.runtime.module.classpath">
+    <pathelement location="${jax-ws-service-implementation.testoutput.dir}"/>
+    <pathelement location="${jax-ws-service-implementation.output.dir}"/>
+    <path refid="library.streambuffer-1.5.9.classpath"/>
+    <path refid="jax-ws-service-api.runtime.module.classpath"/>
+    <path refid="library.maven:_javax.jws:javax.jws-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+    <path refid="library.maven:_com.sun.xml.ws:jaxws-rt:2.3.3.classpath"/>
+    <path refid="library.maven:_com.sun.xml.ws:policy:2.7.10.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.3.classpath"/>
+    <path refid="library.maven:_org.glassfish.ha:ha-api:3.1.12.classpath"/>
+    <path refid="library.maven:_org.glassfish.external:management-api:3.2.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.gmbal:gmbal:4.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.pfl:pfl-tf:4.1.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.pfl:pfl-basic:4.1.0.classpath"/>
+    <path refid="library.maven:_org.jvnet.staxex:stax-ex:1.8.3.classpath"/>
+    <path refid="library.maven:_com.sun.xml.stream.buffer:streambuffer:1.5.9.classpath"/>
+    <path refid="library.maven:_org.jvnet.mimepull:mimepull:1.9.13.classpath"/>
+    <path refid="library.maven:_com.sun.xml.fastinfoset:fastinfoset:1.2.18.classpath"/>
+    <path refid="library.maven:_com.sun.activation:jakarta.activation:1.2.2.classpath"/>
+    <path refid="library.maven:_com.sun.xml.messaging.saaj:saaj-impl:1.5.2.classpath"/>
+    <path refid="library.maven:_com.fasterxml.woodstox:woodstox-core:5.1.0.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:stax2-api:4.1.classpath"/>
+    <path refid="library.maven:_jakarta.xml.ws:jakarta.xml.ws-api:2.3.3.classpath"/>
+    <path refid="library.maven:_jakarta.xml.bind:jakarta.xml.bind-api:2.3.3.classpath"/>
+    <path refid="library.maven:_jakarta.xml.soap:jakarta.xml.soap-api:1.4.2.classpath"/>
+    <path refid="library.maven:_jakarta.jws:jakarta.jws-api:2.1.0.classpath"/>
+    <path refid="library.maven:_jakarta.annotation:jakarta.annotation-api:1.3.5.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jax-ws-service-implementation">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jax-ws-service-implementation">
+    <patternset refid="excluded.from.module.jax-ws-service-implementation"/>
+  </patternset>
+  
+  <path id="jax-ws-service-implementation.module.sourcepath">
+    <dirset dir="${module.jax-ws-service-implementation.basedir}">
+      <include name="sample"/>
+      <include name="delayed"/>
+      <include name="composite"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jax-ws-service-implementation" depends="compile.module.jax-ws-service-implementation.production,compile.module.jax-ws-service-implementation.tests" description="Compile module jax-ws-service-implementation"/>
+  
+  <target name="compile.module.jax-ws-service-implementation.production" depends="register.custom.compilers,compile.module.jax-ws-service-api" description="Compile module jax-ws-service-implementation; production classes">
+    <mkdir dir="${jax-ws-service-implementation.output.dir}"/>
+    <javac2 destdir="${jax-ws-service-implementation.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jax-ws-service-implementation}/javac">
+      <compilerarg line="${compiler.args.jax-ws-service-implementation}"/>
+      <bootclasspath refid="jax-ws-service-implementation.module.bootclasspath"/>
+      <classpath refid="jax-ws-service-implementation.module.production.classpath"/>
+      <src refid="jax-ws-service-implementation.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jax-ws-service-implementation"/>
+    </javac2>
+    
+    <copy todir="${jax-ws-service-implementation.output.dir}">
+      <fileset dir="${module.jax-ws-service-implementation.basedir}/sample">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jax-ws-service-implementation.basedir}/delayed">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jax-ws-service-implementation.basedir}/composite">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jax-ws-service-implementation.tests" depends="register.custom.compilers,compile.module.jax-ws-service-implementation.production" description="compile module jax-ws-service-implementation; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.jax-ws-service-implementation" description="cleanup module">
+    <delete dir="${jax-ws-service-implementation.output.dir}"/>
+    <delete dir="${jax-ws-service-implementation.testoutput.dir}"/>
+  </target>
+</project>

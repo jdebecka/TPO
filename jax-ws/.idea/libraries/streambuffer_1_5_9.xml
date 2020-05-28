@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="streambuffer-1.5.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/streambuffer-1.5.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/jaxws-api-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/jaxb-api-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/jaxws-rt-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/jaxb-impl-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/activation-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/policy-2.7.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/javax.jws-api-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/jaxb-xjc-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/jaxws-tools-2.3.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/stax-ex-1.8.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/jax-ws-service-implementation/lib/jaxb-xjc-2.3.3.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_jax-ws-service-api" default="compile.module.jax-ws-service-api">
+  <dirname property="module.jax-ws-service-api.basedir" file="${ant.file.module_jax-ws-service-api}"/>
+  
+  <property name="module.jdk.home.jax-ws-service-api" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jax-ws-service-api" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jax-ws-service-api" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jax-ws-service-api" value="-encoding UTF-8 -source 5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="jax-ws-service-api.output.dir" value="${module.jax-ws-service-api.basedir}/target/classes"/>
+  <property name="jax-ws-service-api.testoutput.dir" value="${module.jax-ws-service-api.basedir}/target/test-classes"/>
+  
+  <path id="jax-ws-service-api.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jax-ws-service-api.module.production.classpath">
+    <path refid="${module.jdk.classpath.jax-ws-service-api}"/>
+    <path refid="library.javax.jws-api-1.1_(2).classpath"/>
+    <path refid="library.maven:_javax.jws:javax.jws-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+  </path>
+  
+  <path id="jax-ws-service-api.runtime.production.module.classpath">
+    <pathelement location="${jax-ws-service-api.output.dir}"/>
+    <path refid="library.javax.jws-api-1.1_(2).classpath"/>
+    <path refid="library.maven:_javax.jws:javax.jws-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+  </path>
+  
+  <path id="jax-ws-service-api.module.classpath">
+    <pathelement location="${jax-ws-service-api.output.dir}"/>
+    <path refid="${module.jdk.classpath.jax-ws-service-api}"/>
+    <path refid="library.javax.jws-api-1.1_(2).classpath"/>
+    <path refid="library.maven:_javax.jws:javax.jws-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+  </path>
+  
+  <path id="jax-ws-service-api.runtime.module.classpath">
+    <pathelement location="${jax-ws-service-api.testoutput.dir}"/>
+    <pathelement location="${jax-ws-service-api.output.dir}"/>
+    <path refid="library.javax.jws-api-1.1_(2).classpath"/>
+    <path refid="library.maven:_javax.jws:javax.jws-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath"/>
+    <path refid="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jax-ws-service-api">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jax-ws-service-api">
+    <patternset refid="excluded.from.module.jax-ws-service-api"/>
+  </patternset>
+  
+  <path id="jax-ws-service-api.module.sourcepath">
+    <dirset dir="${module.jax-ws-service-api.basedir}">
+      <include name="sample"/>
+      <include name="common"/>
+      <include name="delayed"/>
+      <include name="composite"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jax-ws-service-api" depends="compile.module.jax-ws-service-api.production,compile.module.jax-ws-service-api.tests" description="Compile module jax-ws-service-api"/>
+  
+  <target name="compile.module.jax-ws-service-api.production" depends="register.custom.compilers" description="Compile module jax-ws-service-api; production classes">
+    <mkdir dir="${jax-ws-service-api.output.dir}"/>
+    <javac2 destdir="${jax-ws-service-api.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jax-ws-service-api}/javac">
+      <compilerarg line="${compiler.args.jax-ws-service-api}"/>
+      <bootclasspath refid="jax-ws-service-api.module.bootclasspath"/>
+      <classpath refid="jax-ws-service-api.module.production.classpath"/>
+      <src refid="jax-ws-service-api.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jax-ws-service-api"/>
+    </javac2>
+    
+    <copy todir="${jax-ws-service-api.output.dir}">
+      <fileset dir="${module.jax-ws-service-api.basedir}/sample">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jax-ws-service-api.basedir}/common">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jax-ws-service-api.basedir}/delayed">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.jax-ws-service-api.basedir}/composite">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jax-ws-service-api.tests" depends="register.custom.compilers,compile.module.jax-ws-service-api.production" description="compile module jax-ws-service-api; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.jax-ws-service-api" description="cleanup module">
+    <delete dir="${jax-ws-service-api.output.dir}"/>
+    <delete dir="${jax-ws-service-api.testoutput.dir}"/>
+  </target>
+</project>

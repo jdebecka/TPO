@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jax-ws" default="all">
+  
+  
+  <property file="jax-ws.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.12" value="${jdk.home.12}/bin"/>
+  <path id="jdk.classpath.12">
+    <fileset dir="${jdk.home.12}">
+      <include name="../Home!/java.base"/>
+      <include name="../Home!/java.compiler"/>
+      <include name="../Home!/java.datatransfer"/>
+      <include name="../Home!/java.desktop"/>
+      <include name="../Home!/java.instrument"/>
+      <include name="../Home!/java.logging"/>
+      <include name="../Home!/java.management"/>
+      <include name="../Home!/java.management.rmi"/>
+      <include name="../Home!/java.naming"/>
+      <include name="../Home!/java.net.http"/>
+      <include name="../Home!/java.prefs"/>
+      <include name="../Home!/java.rmi"/>
+      <include name="../Home!/java.scripting"/>
+      <include name="../Home!/java.se"/>
+      <include name="../Home!/java.security.jgss"/>
+      <include name="../Home!/java.security.sasl"/>
+      <include name="../Home!/java.smartcardio"/>
+      <include name="../Home!/java.sql"/>
+      <include name="../Home!/java.sql.rowset"/>
+      <include name="../Home!/java.transaction.xa"/>
+      <include name="../Home!/java.xml"/>
+      <include name="../Home!/java.xml.crypto"/>
+      <include name="../Home!/jdk.accessibility"/>
+      <include name="../Home!/jdk.aot"/>
+      <include name="../Home!/jdk.attach"/>
+      <include name="../Home!/jdk.charsets"/>
+      <include name="../Home!/jdk.compiler"/>
+      <include name="../Home!/jdk.crypto.cryptoki"/>
+      <include name="../Home!/jdk.crypto.ec"/>
+      <include name="../Home!/jdk.dynalink"/>
+      <include name="../Home!/jdk.editpad"/>
+      <include name="../Home!/jdk.hotspot.agent"/>
+      <include name="../Home!/jdk.httpserver"/>
+      <include name="../Home!/jdk.internal.ed"/>
+      <include name="../Home!/jdk.internal.jvmstat"/>
+      <include name="../Home!/jdk.internal.le"/>
+      <include name="../Home!/jdk.internal.opt"/>
+      <include name="../Home!/jdk.internal.vm.ci"/>
+      <include name="../Home!/jdk.internal.vm.compiler"/>
+      <include name="../Home!/jdk.internal.vm.compiler.management"/>
+      <include name="../Home!/jdk.jartool"/>
+      <include name="../Home!/jdk.javadoc"/>
+      <include name="../Home!/jdk.jcmd"/>
+      <include name="../Home!/jdk.jconsole"/>
+      <include name="../Home!/jdk.jdeps"/>
+      <include name="../Home!/jdk.jdi"/>
+      <include name="../Home!/jdk.jdwp.agent"/>
+      <include name="../Home!/jdk.jfr"/>
+      <include name="../Home!/jdk.jlink"/>
+      <include name="../Home!/jdk.jshell"/>
+      <include name="../Home!/jdk.jsobject"/>
+      <include name="../Home!/jdk.jstatd"/>
+      <include name="../Home!/jdk.localedata"/>
+      <include name="../Home!/jdk.management"/>
+      <include name="../Home!/jdk.management.agent"/>
+      <include name="../Home!/jdk.management.jfr"/>
+      <include name="../Home!/jdk.naming.dns"/>
+      <include name="../Home!/jdk.naming.rmi"/>
+      <include name="../Home!/jdk.net"/>
+      <include name="../Home!/jdk.pack"/>
+      <include name="../Home!/jdk.rmic"/>
+      <include name="../Home!/jdk.scripting.nashorn"/>
+      <include name="../Home!/jdk.scripting.nashorn.shell"/>
+      <include name="../Home!/jdk.sctp"/>
+      <include name="../Home!/jdk.security.auth"/>
+      <include name="../Home!/jdk.security.jgss"/>
+      <include name="../Home!/jdk.unsupported"/>
+      <include name="../Home!/jdk.unsupported.desktop"/>
+      <include name="../Home!/jdk.xml.dom"/>
+      <include name="../Home!/jdk.zipfs"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.12}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.12}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.12"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.javax.jws-api-1.1.classpath">
+    <pathelement location="${basedir}/jax-ws-client/lib/activation-1.1.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/javax.jws-api-1.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/jaxb-api-2.3.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/jaxb-impl-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/jaxb-xjc-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/jaxws-api-2.3.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/jaxws-rt-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/jaxws-tools-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/policy-2.7.10.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/stax-ex-1.8.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-client/lib/streambuffer-1.5.9.jar"/>
+  </path>
+  
+  <path id="library.javax.jws-api-1.1_(2).classpath">
+    <pathelement location="${basedir}/jax-ws-service-api/lib/activation-1.1.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/javax.jws-api-1.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/jaxb-api-2.3.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/jaxb-impl-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/jaxb-xjc-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/jaxws-api-2.3.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/jaxws-rt-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/jaxws-tools-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/policy-2.7.10.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/stax-ex-1.8.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-api/lib/streambuffer-1.5.9.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.fasterxml.woodstox:woodstox-core:5.1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/fasterxml/woodstox/woodstox-core/5.1.0/woodstox-core-5.1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.activation:jakarta.activation:1.2.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.bind:jaxb-core:2.3.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/bind/jaxb-core/2.3.0/jaxb-core-2.3.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/bind/jaxb-impl/2.3.0/jaxb-impl-2.3.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.bind:jaxb-impl:2.3.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.bind:jaxb-jxc:3.0.0-m3.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/bind/jaxb-jxc/3.0.0-M3/jaxb-jxc-3.0.0-M3.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.bind:jaxb-xjc:3.0.0-m3.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/bind/jaxb-xjc/3.0.0-M3/jaxb-xjc-3.0.0-M3.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.fastinfoset:fastinfoset:1.2.18.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/fastinfoset/FastInfoset/1.2.18/FastInfoset-1.2.18.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.messaging.saaj:saaj-impl:1.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/messaging/saaj/saaj-impl/1.5.0/saaj-impl-1.5.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.messaging.saaj:saaj-impl:1.5.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/messaging/saaj/saaj-impl/1.5.2/saaj-impl-1.5.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.stream.buffer:streambuffer:1.5.9.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/stream/buffer/streambuffer/1.5.9/streambuffer-1.5.9.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.ws:jaxws-rt:2.3.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/ws/jaxws-rt/2.3.3/jaxws-rt-2.3.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.ws:jaxws-tools:3.0.0-m3.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/ws/jaxws-tools/3.0.0-M3/jaxws-tools-3.0.0-M3.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.ws:policy:2.7.10.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/ws/policy/2.7.10/policy-2.7.10.jar"/>
+  </path>
+  
+  <path id="library.maven:_jakarta.annotation:jakarta.annotation-api:1.3.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_jakarta.jws:jakarta.jws-api:2.1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/jakarta/jws/jakarta.jws-api/2.1.0/jakarta.jws-api-2.1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_jakarta.xml.bind:jakarta.xml.bind-api:2.3.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_jakarta.xml.soap:jakarta.xml.soap-api:1.4.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/jakarta/xml/soap/jakarta.xml.soap-api/1.4.2/jakarta.xml.soap-api-1.4.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_jakarta.xml.ws:jakarta.xml.ws-api:2.3.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/jakarta/xml/ws/jakarta.xml.ws-api/2.3.3/jakarta.xml.ws-api-2.3.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.activation:activation:1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/activation/activation/1.1/activation-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.activation:javax.activation-api:1.2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.annotation:javax.annotation-api:1.3.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.jws:javax.jws-api:1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/jws/javax.jws-api/1.1/javax.jws-api-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.jws:jsr181-api:1.0-mr1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/jws/jsr181-api/1.0-MR1/jsr181-api-1.0-MR1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.xml.bind:jaxb-api:2.3.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.xml.bind:jaxb-api:2.3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.xml.soap:javax.xml.soap-api:1.4.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/xml/soap/javax.xml.soap-api/1.4.0/javax.xml.soap-api-1.4.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.xml.soap:saaj-api:1.3.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/xml/soap/saaj-api/1.3.4/saaj-api-1.3.4.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.xml.ws:jaxws-api:2.2.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/xml/ws/jaxws-api/2.2.6/jaxws-api-2.2.6.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.xml.ws:jaxws-api:2.3.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/xml/ws/jaxws-api/2.3.1/jaxws-api-2.3.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.codehaus.woodstox:stax2-api:4.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/codehaus/woodstox/stax2-api/4.1/stax2-api-4.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.external:management-api:3.2.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/external/management-api/3.2.2/management-api-3.2.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.gmbal:gmbal:4.0.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/gmbal/gmbal/4.0.1/gmbal-4.0.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.ha:ha-api:3.1.12.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/ha/ha-api/3.1.12/ha-api-3.1.12.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.pfl:pfl-basic:4.1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/pfl/pfl-basic/4.1.0/pfl-basic-4.1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish.pfl:pfl-tf:4.1.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/pfl/pfl-tf/4.1.0/pfl-tf-4.1.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.glassfish:javax.annotation:3.1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/glassfish/javax.annotation/3.1.1/javax.annotation-3.1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jvnet.mimepull:mimepull:1.9.13.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jvnet/mimepull/mimepull/1.9.13/mimepull-1.9.13.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jvnet.staxex:stax-ex:1.8.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jvnet/staxex/stax-ex/1.8.3/stax-ex-1.8.3.jar"/>
+  </path>
+  
+  <path id="library.streambuffer-1.5.9.classpath">
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/activation-1.1.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/javax.jws-api-1.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/jaxb-api-2.3.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/jaxb-impl-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/jaxb-xjc-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/jaxws-api-2.3.1.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/jaxws-rt-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/jaxws-tools-2.3.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/policy-2.7.10.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/stax-ex-1.8.3.jar"/>
+    <pathelement location="${basedir}/jax-ws-service-implementation/lib/streambuffer-1.5.9.jar"/>
+  </path>
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/jax-ws-service-api/module_jax-ws-service-api.xml"/>
+  
+  <import file="${basedir}/jax-ws-client/module_jax-ws-client.xml"/>
+  
+  <import file="${basedir}/jax-ws-service-implementation/module_jax-ws-service-implementation.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.jax-ws-service-api, clean.module.jax-ws-client, clean.module.jax-ws-service-implementation" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.jax-ws-service-api, compile.module.jax-ws-client, compile.module.jax-ws-service-implementation" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
