@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: eu.glowacki:jax-ws-service-api:0.0.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/glowacki/jax-ws-service-api/0.0.1/jax-ws-service-api-0.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/glowacki/jax-ws-service-api/0.0.1/jax-ws-service-api-0.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/eu/glowacki/jax-ws-service-api/0.0.1/jax-ws-service-api-0.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
